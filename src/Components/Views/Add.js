@@ -33,6 +33,7 @@ const Add = ({ show, setAddShow , list, setList }) => {
           />
 
           <button
+           className="btn btn-primary w-100 mt-1"
             onClick={() => {
                 let newList = list;
                 newList.push({

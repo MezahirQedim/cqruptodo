@@ -1,11 +1,27 @@
 import React from "react";
 import { Modal, CloseButton } from "react-bootstrap";
 
-const Edit = ({infOpen, setInfOpen, info}) => {
+const Edit = ({infOpen, setInfOpen, info, list, setList, infoIndex}) => {
 
   const [name, setName] = React.useState("")
   const [surname, setSurname] = React.useState("")
   const [work, setWork] = React.useState("")
+
+  console.log(list[infoIndex])
+
+  const Edit = () => {
+    let newList = list
+    newList[infoIndex] = {
+      name: name,
+      surname: surname,
+      work: work
+    }
+    setList([...newList])
+    localStorage.setItem("list0323", JSON.stringify(newList))
+    setInfOpen(false)
+
+  }
+
 
 
   React.useEffect(() => {
@@ -50,7 +66,9 @@ const Edit = ({infOpen, setInfOpen, info}) => {
 
             />
 
-          <button className="btn btn-primary w-100 mt-1">Edit</button>
+          <button className="btn btn-primary w-100 mt-1"
+            onClick={() => Edit()}
+          >Edit</button>
         </Modal.Body>
       </Modal>
     </div>

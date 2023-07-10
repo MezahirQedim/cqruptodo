@@ -16,6 +16,7 @@ const TodoList = () => {
   // İnfo
   const [infOpen, setInfOpen] = React.useState(false);
   const [info, setInfo] = React.useState({})
+  const [infoIndex, setInfoIndex] = React.useState()
 
   const Delete = (key) => {
     let newList = list;
@@ -24,8 +25,6 @@ const TodoList = () => {
     localStorage.setItem("list0323", JSON.stringify(newList));
   };
 
-
-  console.log(list)
 
   return (
     <div>
@@ -41,6 +40,9 @@ const TodoList = () => {
         infOpen={infOpen} 
         setInfOpen={setInfOpen}
         info={info}
+        list={list}
+        setList = {setList}
+        infoIndex={infoIndex}
 
         
       />
@@ -79,6 +81,7 @@ const TodoList = () => {
                       {
                         setInfOpen(true)
                         setInfo(item)
+                        setInfoIndex(key)
                       }
                     }
                   >
